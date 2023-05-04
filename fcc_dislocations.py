@@ -2,7 +2,7 @@ import numpy as np
 import os
 import sys
 
-
+# -------------
 # A is the fcc cell dimension.
 FCC_LATTICE_CONSTANT = 3.615
 POISSONS_RATIO = 0.33
@@ -149,7 +149,7 @@ def aGetDimensions():
 
 
 def aaGetDislocations():
-    aa_dislocations = np.loadtxt('dislocations.ini')
+    aa_dislocations = np.loadtxt('dislocations.ini',ndmin=2)
     return aa_dislocations
 
 
@@ -214,7 +214,7 @@ if __name__ == '__main__':
         print('[wrap] is an optional parameter.')
         print('It should be "wrap" if the simulation box is to be periodic.')
         exit()
-    folder = sys.argv[1]
+    folder =sys.argv[1]
     os.chdir(folder)
     a_n = aGetDimensions()
     aa_dislocations = aaGetDislocations()

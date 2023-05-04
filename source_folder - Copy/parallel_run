@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+
+#SBATCH --job-name=baseAAA
+#SBATCH --output=bk_output_log
+#SBATCH --error=bk_error_log
+#SBATCH --partition=socket
+####SBATCH --exclusive
+####SBATCH --distribution=block
+#SBATCH --constraint=l20g
+#SBATCH --ntasks=128
+
+mpirun --display-allocation -mca orte_tmpdir_base /tmp /home/elie/lammps-3Mar20/src/lmp_huji_intel_gcc -in main.in
+
